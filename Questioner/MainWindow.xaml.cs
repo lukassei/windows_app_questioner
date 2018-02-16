@@ -24,5 +24,17 @@ namespace Questioner
         {
             InitializeComponent();
         }
+
+        private void WpfMain_ListOfQuestionFiles_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                //DbComm.UserOpeningGroup((string)seznamSkupinListBox.SelectedItem);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Chyba");
+            }
+        }
     }
 }

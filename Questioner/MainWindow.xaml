@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Questioner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Otázkovník" Height="400" Width="600"
+        ResizeMode="NoResize">
+    <Grid Margin="7">
+        <TextBlock Text="Počet načtených okruhů:" Margin="0,0,446,335" />
+        <TextBlock Name="wpfMain_NumberOfQuestionFiles" Text="xxx" Margin="137,0,397,335"/>
+
+        <Button Name="WpfMain_Button_Statistics" Content="Statistiky" Background="Transparent" Margin="476,0,0,335"/>
+
+        <TextBlock Text="Vyber druh testu:" Margin="10,83,435,247" FontSize="17" />
+        <Button Name="WpfMain_TestType_ShowAnswers" Content="Prohlédnout odpovědi" Margin="0,113,421,209"/>
+        <Button Name="WpfMain_TestType_RandomQuestions" Content="Náhodné otázky" Margin="0,151,421,171"/>
+        <Button Name="WpfMain_TestType_LoggedTest" Content="Test naostro" Margin="0,189,421,133"/>
+
+        <TextBlock Text="Vyberte okruh otázek:" FontSize="17" Margin="297,83,111,247"/>
+        <ListBox Name="WpfMain_ListOfQuestionFiles" VerticalAlignment="Center" Height="242" Margin="181,113,0,0" ItemsSource="{Binding QuestionFiles}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <EventSetter Event="MouseDoubleClick" Handler="WpfMain_ListOfQuestionFiles_DoubleClick" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
     </Grid>
 </Window>
