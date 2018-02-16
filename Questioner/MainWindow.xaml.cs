@@ -26,6 +26,7 @@ namespace Questioner
             InitializeComponent();
             _dataSaverClass = new DataSaver();
             _dataSaverClass.LoadQuestionFiles();
+            wpfMain_NumberOfQuestionFiles.Text = _dataSaverClass.QuestionFiles.Count.ToString();
             DataContext = _dataSaverClass;
 
         }
@@ -34,8 +35,7 @@ namespace Questioner
         {
             try
             {
-                //DbComm.UserOpeningGroup((string)seznamSkupinListBox.SelectedItem);
-                //string s = @"Questions\" + (string)WpfMain_ListOfQuestionFiles.SelectedItem + ".txt";
+                _dataSaverClass.LoadQuestionFile(@"Questions\" + (string)WpfMain_ListOfQuestionFiles.SelectedItem + ".txt");
             }
             catch (Exception ex)
             {

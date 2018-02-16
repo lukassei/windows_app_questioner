@@ -1,1 +1,2 @@
-﻿fwefwef
+﻿Je toto otázka?;ano;ne;nejsem si jistý;1
+Je toto oznamovací věta?;ne;možná;ano;3
