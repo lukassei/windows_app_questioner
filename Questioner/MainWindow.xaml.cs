@@ -21,11 +21,13 @@ namespace Questioner
     public partial class MainWindow : Window
     {
         DataSaver _dataSaverClass;
+        Test _testClass;
         public MainWindow()
         {
             InitializeComponent();
-            _dataSaverClass = new DataSaver();
+            _dataSaverClass = new DataSaver(this);
             _dataSaverClass.LoadQuestionFiles();
+            _testClass = new Test(_dataSaverClass);
             wpfMain_NumberOfQuestionFiles.Text = _dataSaverClass.QuestionFiles.Count.ToString();
             DataContext = _dataSaverClass;
 
@@ -36,11 +38,31 @@ namespace Questioner
             try
             {
                 _dataSaverClass.LoadQuestionFile(@"Questions\" + (string)WpfMain_ListOfQuestionFiles.SelectedItem + ".txt");
+                _testClass.StartTest();
+                //start test depending on type selected
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Chyba");
             }
+        }
+
+        private void WpfMain_TestType_ShowAnswers_Click(object sender, RoutedEventArgs e)
+        {
+            _dataSaverClass.TestTypeSelected = 1;
+            _dataSaverClass.UpdateColorOfTestTypeSelected();
+        }
+
+        private void WpfMain_TestType_NotLoggedTest_Click(object sender, RoutedEventArgs e)
+        {
+            _dataSaverClass.TestTypeSelected = 2;
+            _dataSaverClass.UpdateColorOfTestTypeSelected();
+        }
+
+        private void WpfMain_TestType_LoggedTest_Click(object sender, RoutedEventArgs e)
+        {
+            _dataSaverClass.TestTypeSelected = 3;
+            _dataSaverClass.UpdateColorOfTestTypeSelected();
         }
     }
 }

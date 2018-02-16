@@ -13,7 +13,7 @@ namespace Questioner
         public string Answer2 { get; set; }
         public string Answer3 { get; set; }
         public int ChoosenAnswer { get; set; }
-        private int CorrectAnswer { get; set; }
+        public int CorrectAnswer { get; set; }
 
         public Question(string _questionTask, string _answer1, string _answer2, string _answer3, int _correctAnswer)
         {

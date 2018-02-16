@@ -14,9 +14,9 @@
         <Button Name="WpfMain_Button_Statistics" Content="Statistiky" Background="Transparent" Margin="476,0,0,325"/>
 
         <TextBlock Text="Vyber druh testu:" Margin="10,83,435,234" FontSize="17" />
-        <Button Name="WpfMain_TestType_ShowAnswers" Content="Prohlédnout odpovědi" Margin="0,128,421,194"/>
-        <Button Name="WpfMain_TestType_NotLoggedTest" Content="Test nanečisto" Margin="0,168,421,154"/>
-        <Button Name="WpfMain_TestType_LoggedTest" Content="Test naostro" Margin="0,208,421,114"/>
+        <Button Name="WpfMain_TestType_ShowAnswers" Content="Prohlédnout odpovědi" Margin="0,128,421,194" Click="WpfMain_TestType_ShowAnswers_Click"/>
+        <Button Name="WpfMain_TestType_NotLoggedTest" Content="Test nanečisto" Margin="0,168,421,154" Click="WpfMain_TestType_NotLoggedTest_Click"/>
+        <Button Name="WpfMain_TestType_LoggedTest" Content="Test naostro" Margin="0,208,421,114" Click="WpfMain_TestType_LoggedTest_Click"/>
 
         <TextBlock Text="Vyberte okruh otázek:" FontSize="17" Margin="297,83,111,234"/>
         <ListBox Name="WpfMain_ListOfQuestionFiles" VerticalAlignment="Center" Height="228" Margin="181,128,0,1" ItemsSource="{Binding QuestionFiles}">
