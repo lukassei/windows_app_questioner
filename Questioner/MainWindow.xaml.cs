@@ -20,9 +20,14 @@ namespace Questioner
     /// </summary>
     public partial class MainWindow : Window
     {
+        DataSaver _dataSaverClass;
         public MainWindow()
         {
             InitializeComponent();
+            _dataSaverClass = new DataSaver();
+            _dataSaverClass.LoadQuestionFiles();
+            DataContext = _dataSaverClass;
+
         }
 
         private void WpfMain_ListOfQuestionFiles_DoubleClick(object sender, MouseButtonEventArgs e)
@@ -30,6 +35,7 @@ namespace Questioner
             try
             {
                 //DbComm.UserOpeningGroup((string)seznamSkupinListBox.SelectedItem);
+                //string s = @"Questions\" + (string)WpfMain_ListOfQuestionFiles.SelectedItem + ".txt";
             }
             catch (Exception ex)
             {
